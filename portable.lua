@@ -4,5 +4,10 @@
 
 scripthub = {} or scripthub
 
+function scripthub.open()
+	scripthub.window = vgui.Create("DFrame")
+	scripthub.window:SetSize(500,450)
+	scripthub.window:Center()
+end
 
-scripthub.window =
+timer.Simple(1, scripthub.open)
