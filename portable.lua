@@ -1,0 +1,1 @@
+-- This version of ScriptHub is meant to be run via [lua_run_cl http.fetch("")]
