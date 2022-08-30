@@ -4,29 +4,35 @@
 
 scripthub = {} or scripthub
 
+function scripthub.createButton(text,x,y,w,h,parent,doclick1)
+	local but = vgui.Create("DButton",parent)
+	but:SetSize(w,h)
+	but:SetPos(x,y)
+	but:SetTextColor(Color(255,255,255,255))
+	but:SetText(text)
+	but.Paint = function(self,w,h)
+		draw.RoundedBox(7, 0, 0, w, h, Color(77,77,77,77))
+	end
+end
+
 function scripthub.open()
 	scripthub.window = vgui.Create("DFrame")
 	scripthub.window:SetSize(700,500)
 	scripthub.window:Center()
 	local del = 700/3
 
-	local but = vgui.Create("DButton",scripthub.window)
-	but:SetSize(del,25)
-	but:SetPos(0,25)
-	but:SetTextColor(Color(255,255,255,255))
-	but:SetText("Hub")
+	scripthub.createButton("Hub",0,25,del,25,scripthub.window,function() 
 
-	local but = vgui.Create("DButton",scripthub.window)
-	but:SetSize(del,25)
-	but:SetPos(del,25)
-	but:SetTextColor(Color(255,255,255,255))
-	but:SetText("Hub")
+	end)
 
-	local but = vgui.Create("DButton",scripthub.window)
-	but:SetSize(del,25)
-	but:SetPos(del*2,25)
-	but:SetTextColor(Color(255,255,255,255))
-	but:SetText("Hub")
+	scripthub.createButton("Hub",del,25,del,25,scripthub.window,function() 
+
+	end)
+
+	scripthub.createButton("Hub",del*2,25,del,25,scripthub.window,function() 
+
+	end)
+
 end
 
 timer.Simple(1, scripthub.open)
