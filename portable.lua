@@ -6,8 +6,27 @@ scripthub = {} or scripthub
 
 function scripthub.open()
 	scripthub.window = vgui.Create("DFrame")
-	scripthub.window:SetSize(700,650)
+	scripthub.window:SetSize(700,500)
 	scripthub.window:Center()
+	local del = 700/3
+
+	local but = vgui.Create("DButton",scripthub.window)
+	but:SetSize(del,25)
+	but:SetPos(del,0)
+	but:SetTextColor(Color(255,255,255,255))
+	but:SetText("Hub")
+
+	local but = vgui.Create("DButton",scripthub.window)
+	but:SetSize(del,25)
+	but:SetPos(del*2,0)
+	but:SetTextColor(Color(255,255,255,255))
+	but:SetText("Hub")
+
+	local but = vgui.Create("DButton",scripthub.window)
+	but:SetSize(del,25)
+	but:SetPos(del*3,0)
+	but:SetTextColor(Color(255,255,255,255))
+	but:SetText("Hub")
 end
 
 timer.Simple(1, scripthub.open)
