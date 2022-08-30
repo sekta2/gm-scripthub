@@ -12,13 +12,13 @@ function scripthub.open()
 
 	local but = vgui.Create("DButton",scripthub.window)
 	but:SetSize(del,25)
-	but:SetPos(del,25)
+	but:SetPos(0,25)
 	but:SetTextColor(Color(255,255,255,255))
 	but:SetText("Hub")
 
 	local but = vgui.Create("DButton",scripthub.window)
 	but:SetSize(del,25)
-	but:SetPos(del*2,25)
+	but:SetPos(del,25)
 	but:SetTextColor(Color(255,255,255,255))
 	but:SetText("Hub")
 
