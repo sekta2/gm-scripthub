@@ -19,6 +19,9 @@ function scripthub.open()
 	scripthub.window = vgui.Create("DFrame")
 	scripthub.window:SetSize(700,500)
 	scripthub.window:Center()
+	scripthub.window.Paint = function(self,w,h)
+		draw.RoundedBox(7, 0, 0, w, h, Color(77,77,77,77))
+	end
 	local del = 700/3
 
 	scripthub.createButton("Hub",0,25,del,25,scripthub.window,function() 
