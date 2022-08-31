@@ -1,0 +1,4 @@
+-- the console version of scripthub
+-- commands:
+-- sh--require *here name of script*
+-- sh--list *list* - list of 5 scripts
