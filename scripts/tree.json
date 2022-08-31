@@ -4,5 +4,17 @@
 		"desc":"This is gui-portable version of scripthub.",
 		"file":"https://pastebin.com/raw/rBUETub9",
 		"author":"sekta"
-	}
+	},
+	"zs-trigger":{
+		"name":"ZombieSurvival TriggerBot",
+		"desc":"Simple TriggerBot with gui. Open on zs_triggerbot",
+		"file":"https://pastebin.com/raw/3Sz5VQnT",
+		"author":"sekta"
+	},
+	"smeghack":{
+		"name":"SmegHack",
+		"desc":"Old cheat with good func's",
+		"file":"https://pastebin.com/raw/SAfN4NmX",
+		"author":"sekta"
+	},
 }

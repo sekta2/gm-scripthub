@@ -55,8 +55,6 @@ function shcmd.initCommands()
 	concommand.Add("sh--require", function(ply,cmd,args,argsStr)
 		local find = false
 		for k,v in pairs(shcmd.scripts) do
-			print(k)
-			print(args[1])
 			if k==args[1] then
 				find=true
 				http.Fetch(v["file"],function(content)
@@ -69,14 +67,15 @@ function shcmd.initCommands()
 	end)
 
 	concommand.Add("sh--list", function(ply,cmd,args,argsStr)
-		local find = false
+		local id = 1
 		for k,v in pairs(shcmd.scripts) do
-			shcmd.print("  ")
+			shcmd.print(id)
 			shcmd.print("ID: "..k)
 			shcmd.print("Name: "..v["name"])
 			shcmd.print("Description: "..v["desc"])
 			shcmd.print("Author: "..v["author"])
 			shcmd.print("Run-Command: ".."sh--require "..k)
+			id = id+1
 		end
 	end)
 end
