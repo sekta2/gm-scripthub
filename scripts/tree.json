@@ -1,7 +1,7 @@
 {
-	"test":{
-		"name":"Test script",
-		"desc":"This is test script",
+	"sh-gui":{
+		"name":"ScriptHub",
+		"desc":"This is gui-portable version of scripthub.",
 		"file":"https://pastebin.com/raw/rBUETub9",
 		"author":"sekta"
 	}
