@@ -7,15 +7,18 @@ shcmd = shcmd or {}
 shcmd.scripts = {}
 
 function shcmd.print(str)
-	MsgC(Color(45,136,240),"[SCRIPTHUB] ",Color(255,255,255),str,"\n")
+	local time = os.date("*t")
+	MsgC(Color(45,136,240),"[",time.hour,":",time.min,":",time.sec,"]","[SCRIPTHUB] ",Color(255,255,255),str,"\n")
 end
 
 function shcmd.printError(str)
-	MsgC(Color(229,50,50),"[SCRIPTHUB] ",Color(255,255,255),str,"\n")
+	local time = os.date("*t")
+	MsgC(Color(229,50,50),"[",time.hour,":",time.min,":",time.sec,"]","[SCRIPTHUB] ",Color(255,255,255),str,"\n")
 end
 
 function shcmd.printSuccess(str)
-	MsgC(Color(50,229,50),"[SCRIPTHUB] ",Color(255,255,255),str,"\n")
+	local time = os.date("*t")
+	MsgC(Color(50,229,50),"[",time.hour,":",time.min,":",time.sec,"]","[SCRIPTHUB] ",Color(255,255,255),str,"\n")
 end
 
 local function loadFromPastebin()
