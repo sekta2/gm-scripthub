@@ -72,6 +72,7 @@ function shcmd.initCommands()
 	concommand.Add("sh--list", function(ply,cmd,args,argsStr)
 		local id = 1
 		for k,v in pairs(shcmd.scripts) do
+			shcmd.print(" ")
 			shcmd.print(id)
 			shcmd.print("ID: "..k)
 			shcmd.print("Name: "..v["name"])
