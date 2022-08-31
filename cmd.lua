@@ -27,3 +27,6 @@ function shcmd.init()
 	shcmd.print("Loading commands")
 	shcmd.initCommands()
 end
+
+
+shcmd.init()
