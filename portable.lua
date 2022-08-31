@@ -3,6 +3,11 @@
 
 
 scripthub = {} or scripthub
+scripthub.scripts = "https://raw.githubusercontent.com/sekta2/gm-scripthub/main/scripts/tree.json"
+scripthub.tbl = nil
+http.Fetch(scripthub.scripts, function(jsoncontent)
+	scripthub.tbl = util.JSONToTable(jsoncontent)
+end)
 
 function scripthub.createButton(text,x,y,w,h,parent,doclick1)
 	local but = vgui.Create("DButton",parent)
@@ -29,6 +34,14 @@ function scripthub.open()
 	scripthub.window.hide = false
 	local del = 700/3
 
+	local function scriptsShow()
+		if IsValid(scripthub.window.panel) then scripthub.window.panel:Remove() end
+		scripthub.window.panel = vgui.Create("DPanel",scripthub.window)
+		scripthub.window.panel:SetPos(50,55)
+		scripthub.window.panel:SetSize(700-(50*2),500-(55*2))
+	end
+
+
 	scripthub.createButton("Show/Hide",700/2-del/2,0,del,25,scripthub.window,function() 
 		if scripthub.window.hide then
 			scripthub.window.hide = false
@@ -39,17 +52,29 @@ function scripthub.open()
 		end
 	end)
 
-	scripthub.createButton("Hub",0,25,del,25,scripthub.window,function() 
+	scripthub.window.panel = vgui.Create("DPropertySheet",scripthub.window)
+	scripthub.window.panel:SetSize(700-10,400-25)
+	scripthub.window.panel:SetPos(5,25)
+	scripthub.window.panel:Dock( FILL )
 
+	scripthub.window.panel.scripts = vgui.Create("DPanel")
+	scripthub.window.panel:AddSheet("Hub", scripthub.window.panel.scripts, "icon16/table.png")
+
+	scripthub.window.panel.scripts = vgui.Create("DPanel")
+	local w = scripthub.window.panel.scripts:GetWide()
+	local h = scripthub.window.panel.scripts:GetTall()
+	print(w)
+	print(h)
+
+	local textentry = vgui.Create("DTextEntry",scripthub.window.panel.scripts)
+	textentry:SetSize(700,500)
+	textentry:SetContentAlignment("bottom-left")
+
+	scripthub.createButton("Run",0,h-25,w,25,scripthub.window.panel.scripts,function()
+		RunString(textentry:GetValue())
 	end)
 
-	scripthub.createButton("Lua run",del,25,del,25,scripthub.window,function() 
-
-	end)
-
-	scripthub.createButton("Refresh",del*2,25,del,25,scripthub.window,function() 
-
-	end)
+	scripthub.window.panel:AddSheet("Lua run", scripthub.window.panel.scripts, "icon16/script_code.png")
 
 end
 
