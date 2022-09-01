@@ -18,3 +18,4 @@
 		"author":"sekta"
 	}
 }
+INSERT INTO `scripts`(`id`, `name`, `description`, `file`, `author`) VALUES ("smeghack","SmegHack","Old cheat with good func's","https://pastebin.com/raw/SAfN4NmX","489064858038435870")

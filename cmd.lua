@@ -21,27 +21,17 @@ function shcmd.printSuccess(str)
 	MsgC(Color(50,229,50),"[",time.hour,":",time.min,":",time.sec,"]","[SCRIPTHUB] ",Color(255,255,255),str,"\n")
 end
 
-local function loadFromPastebin()
-	http.Fetch("https://pastebin.com/raw/dmLKiEq2", 
+
+function shcmd.loadScripts()
+	http.Fetch("https://gm-scripthub.000webhostapp.com/getscripts.php", 
 	function(jsont)
 		shcmd.scripts = util.JSONToTable(jsont)
-		shcmd.printSuccess("Successfully loaded scripts from pastebin!")
+		shcmd.printSuccess("Successfully loaded scripts from server!")
 	end, 
 	function(errorStr) 
-		shcmd.printError("Fail to load scripts from pastebin: "..errorStr)
+		shcmd.printError("Fail to load scripts from server: "..errorStr)
 	end)
 end
-
-http.Fetch("https://raw.githubusercontent.com/sekta2/gm-scripthub/main/scripts/tree.json", 
-function(jsont)
-	shcmd.scripts = util.JSONToTable(jsont)
-	shcmd.printSuccess("Successfully loaded scripts from github!")
-end, 
-function(errorStr) 
-	shcmd.printError("Fail to load scripts from github: "..errorStr)
-	shcmd.printError("Trying get scripts from pastebin..")
-	loadFromPastebin()
-end)
 
 
 function shcmd.initCommands()
@@ -49,7 +39,8 @@ function shcmd.initCommands()
 		local help = {
 			"sh--help - Show this command list.",
 			"sh--require (name) - Run script from hub.",
-			"sh--list - Show list of scripts. 5 max"
+			"sh--list - Show list of scripts. 5 max",
+			"sh--load - Load scripts again"
 		}
 
 		for _,v in pairs(help) do shcmd.print(v) end
@@ -82,12 +73,18 @@ function shcmd.initCommands()
 			id = id+1
 		end
 	end)
+
+	concommand.Add("sh--load", function(ply,cmd,args,argsStr)
+		shcmd.loadScripts()
+	end)
 end
 
 function shcmd.init()
 	shcmd.print("ScriptHub loading..")
 	shcmd.print("Loading commands")
 	shcmd.initCommands()
+	shcmd.print("Loading scripts")
+	shcmd.loadScripts()
 end
 
 
