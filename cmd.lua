@@ -77,6 +77,10 @@ function shcmd.initCommands()
 	concommand.Add("sh--load", function(ply,cmd,args,argsStr)
 		shcmd.loadScripts()
 	end)
+
+	concommand.Add("sh--upload", function(ply,cmd,args,argsStr)
+		gui.OpenURL("https://gm-scripthub.000webhostapp.com/")
+	end)
 end
 
 function shcmd.init()
