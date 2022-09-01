@@ -40,7 +40,8 @@ function shcmd.initCommands()
 			"sh--help - Show this command list.",
 			"sh--require (name) - Run script from hub.",
 			"sh--list - Show list of scripts. 5 max",
-			"sh--load - Load scripts again"
+			"sh--load - Load scripts again",
+			"sh--upload - Upload script to server(scripthub db)"
 		}
 
 		for _,v in pairs(help) do shcmd.print(v) end
